@@ -61,7 +61,7 @@ func filesSync(base string) chan string {
 					fmt.Fprintf(os.Stderr, "\r%d            \r", n)
 				}
 			}
-			q <- filepath.ToSlash(path)
+			q <- path
 
 			return nil
 		}
@@ -147,7 +147,7 @@ func filesAsync(base string) chan string {
 					fmt.Fprintf(os.Stderr, "\r%d            \r", n)
 				}
 			}
-			q <- filepath.ToSlash(filepath.Join(p, fi.Name()))
+			q <- filepath.Join(p, fi.Name())
 
 			return nil
 		}
